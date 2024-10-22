@@ -1,0 +1,44 @@
+hr{
+  margin: 0;
+}
+#timeLineContainer {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  transition: all 1s ease;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 3000px;
+  .timeLine{
+    height: 100px;
+    width: 100%;
+    background-color: #282c34;
+    display: flex;
+    justify-content: center;
+  }
+  .timeLineTop{
+
+  }
+  .timeLineBottom{
+    .data{
+      color: white;
+      margin-top: -18px;
+      margin-left: 300px;
+    }
+    .data:first-child{
+      margin-left: 190px;
+    }
+  }
+
+}
+.circleIcon{
+  z-index: 0;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+}
+
