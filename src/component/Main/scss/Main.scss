@@ -1,44 +1,93 @@
-hr{
+hr {
   margin: 0;
 }
-#timeLineContainer {
+
+body {
   overflow: hidden;
-  padding: 0;
-  margin: 0;
-  transition: all 1s ease;
+}
+
+.backDrop {
+  position: absolute;
+  background-color: transparent;
+  width: 5400px;
+  height: 201px;
+  z-index: 1;
+}
+
+#timeLineContainer {
   background: rgba(0, 0, 0, 0.5);
+  transition: all 1s ease;
+  position: relative;
+  width: 5400px;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
   flex-flow: column;
-  width: 3000px;
-  .timeLine{
+
+  .timeLine {
     height: 100px;
     width: 100%;
     background-color: #282c34;
     display: flex;
     justify-content: center;
   }
-  .timeLineTop{
+
+
+  .timeLineTop {
+    transition: margin-top 1s ease;
+  }
+
+  .timeLineBottomAnimate {
+    margin-top: -660px; /* 애니메이션이 적용될 때의 margin-bottom 값 */
 
   }
-  .timeLineBottom{
-    .data{
+  .timeLineBottom {
+    transition: opacity 1s ease-in-out;
+
+    .data {
+      z-index: 2;
+      position: relative;
       color: white;
       margin-top: -18px;
       margin-left: 300px;
+
     }
-    .data:first-child{
-      margin-left: 190px;
-    }
+
   }
 
 }
-.circleIcon{
-  z-index: 0;
+
+.circleIcon {
+  position: relative;
+  z-index: 3;
   cursor: pointer;
   width: 35px;
   height: 35px;
 }
 
+.circleIcon:hover {
+  width: 50px;
+  height: 50px;
+  margin-top: -10px;
+
+}
+
+.hideClick {
+  position: absolute;
+  left: -160px;
+  top: -155px;
+  width: 400px;
+  height: 400px;
+  z-index: 0;
+  display: none;
+}
+
+.removeClick {
+  display: block;
+}
+
+.removeCircle{
+  opacity: 0;
+}
