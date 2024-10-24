@@ -1,5 +1,7 @@
 import '../scss/Main.scss'
-import {useRef, useState} from "react";
+import {useState} from "react";
+import {ReactTyped} from 'react-typed';
+
 
 const Main = () => {
     const data = [
@@ -16,6 +18,8 @@ const Main = () => {
         {id: 'data11', year: 2026},
     ];
 
+    const [whatISYear,setWhatISYear]=useState("");
+    const [isTitleCheck, setIsTitleCheck] = useState(false);
     const [isMoveTimeLine, setIsMoveTimeLine] = useState(false);
     const [isIconHover, seIsIconHover] = useState("");
     const iconMouseHoverEventHandler = (e) => {
@@ -49,20 +53,27 @@ const Main = () => {
         });
     }
 
-    const clickEventHandler = () => {
+    const clickEventHandler = (e) => {
+        const findByYear = Array.from(e.target.parentNode.children).find(child => child.classList.contains('year'));
+        setWhatISYear(findByYear.textContent);
         const dataElements = document.querySelectorAll('.timeLineBottom');
-
         setIsMoveTimeLine(false);
         dataElements.forEach((element) => {
             element.classList.add('removeCircle');
         });
         setIsMoveTimeLine(true);
 
+        const titleHandler = () => {
+            setIsTitleCheck(true);
+
+        }
+        setTimeout(titleHandler, 1000);
 
 
     }
     const downTimeLineHandler = () => {
         const dataElements = document.querySelectorAll('.timeLineBottom');
+        setIsTitleCheck(false);
 
         setIsMoveTimeLine(false);
         dataElements.forEach((element) => {
@@ -74,7 +85,8 @@ const Main = () => {
     return (
         <>
             <section id="timeLineContainer">
-                <div className={`timeLine timeLineTop ${isMoveTimeLine ? "timeLineBottomAnimate" : ""}`} onClick={downTimeLineHandler}>
+                <div className={`timeLine timeLineTop ${isMoveTimeLine ? "timeLineBottomAnimate" : ""}`}
+                     onClick={downTimeLineHandler}>
                 </div>
                 <hr/>
                 <div className="timeLine timeLineBottom">
@@ -98,9 +110,12 @@ const Main = () => {
                     ))}
 
                 </div>
-
             </section>
-
+            {isTitleCheck?            <ReactTyped
+                className="title"
+                strings={[whatISYear+"년 어쩌구 저쩌구 입니당."]}
+                typeSpeed={150}
+            />:""}
         </>
     );
 };
