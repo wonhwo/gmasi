@@ -2,20 +2,20 @@ hr {
   margin: 0;
 }
 
+
 body {
   overflow: hidden;
 }
-.title{
+
+.title {
   position: fixed;
   top: 0;
   left: 0;
-  margin-top: 28px;
+  margin-top: 75px;
   margin-left: 25px;
   font-size: 40px;
   color: white;
 }
-
-
 
 
 .backDrop {
@@ -52,9 +52,10 @@ body {
   }
 
   .timeLineBottomAnimate {
-    margin-top: -660px; /* 애니메이션이 적용될 때의 margin-bottom 값 */
+    margin-top: -335px; /* 애니메이션이 적용될 때의 margin-bottom 값 */
 
   }
+
   .timeLineBottom {
     transition: opacity 1s ease-in-out;
 
@@ -100,6 +101,6 @@ body {
   display: block;
 }
 
-.removeCircle{
+.removeCircle {
   opacity: 0;
 }
