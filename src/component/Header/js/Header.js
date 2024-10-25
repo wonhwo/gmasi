@@ -9,12 +9,25 @@ const Header = () => {
                 <div className="logoBox">
                     <h1 className="logoTitle">
                         <img src="/img/logo.png" className="logo" alt="로고없음"/>
-                        필효해</h1></div>
+                        흠냐</h1></div>
             </div>
             <div id="center">
-                <form action="" className="inputForm">
+                <div className="searchBox">
+                    <div className="searchEmpty">
+                        <img src="/img/search.png" alt="이미지 깨짐" className="searchIconFront"/>
 
-                </form>
+                    </div>
+                    <form action="" className="inputForm">
+                        <div className="inputBox">
+                            <input type="text" className="searchInput" placeholder="검색"/>
+                        </div>
+                    </form>
+                    <g className="searchBtn">
+                        <img src="/img/search.png" alt="이미지 깨짐" className="searchIconBack"/>
+                    </g>
+
+                </div>
+
             </div>
             <div id="end">
 
