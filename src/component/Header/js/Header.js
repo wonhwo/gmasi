@@ -25,12 +25,17 @@ const Header = () => {
                     <g className="searchBtn">
                         <img src="/img/search.png" alt="이미지 깨짐" className="searchIconBack"/>
                     </g>
-
                 </div>
 
             </div>
             <div id="end">
+                <div className="writeBox">
+                    <img className="writeIcon profileIcon" src="/img/write.png" alt="이미지 깨짐"/>
 
+                </div>
+                <div className="ProfileBox">
+                    <img className="profileImg profileIcon" src="/img/profileEx.png" alt="프로필 깨짐"/>
+                </div>
             </div>
         </header>
     );
