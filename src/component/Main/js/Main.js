@@ -1,6 +1,7 @@
 import '../scss/Main.scss'
 import {useState} from "react";
 import {ReactTyped} from 'react-typed';
+import VideoPlatform from "../../VideoPlatform/js/VideoPlatform";
 
 
 const Main = () => {
@@ -18,7 +19,7 @@ const Main = () => {
         {id: 'data11', year: 2026},
     ];
 
-    const [whatISYear,setWhatISYear]=useState("");
+    const [whatISYear, setWhatISYear] = useState("");
     const [isTitleCheck, setIsTitleCheck] = useState(false);
     const [isMoveTimeLine, setIsMoveTimeLine] = useState(false);
     const [isIconHover, seIsIconHover] = useState("");
@@ -33,8 +34,11 @@ const Main = () => {
     const getPositonHandler = (e) => {
 
         const clickedElement = e.currentTarget;
+
         // 클릭한 요소의 위치 계산
         const elementRect = clickedElement.getBoundingClientRect();
+        const $titleBox= document.querySelector(".titleBox");
+        $titleBox.style.left = `${elementRect.left + window.scrollX}px`;
         const elementCenterY = elementRect.top + window.scrollY + (elementRect.height / 2);
         const elementCenterX = elementRect.left + window.scrollX + (elementRect.width / 2);
 
@@ -44,6 +48,7 @@ const Main = () => {
         // 스크롤할 위치 계산 (현재 스크롤 위치와 요소 중앙 위치의 차이)
         const scrollToY = elementCenterY - windowCenterY;
         const scrollToX = elementCenterX - windowCenterX;
+        $titleBox.style.transform = "translate(-9%, -9%)"; // 왼쪽 위로 이동
 
         // 스크롤 이동
         window.scrollTo({
@@ -85,37 +90,44 @@ const Main = () => {
     return (
         <>
             <section id="timeLineContainer">
-                <div className={`timeLine timeLineTop ${isMoveTimeLine ? "timeLineBottomAnimate" : ""}`}
-                     onClick={downTimeLineHandler}>
-                </div>
-                <hr/>
-                <div className="timeLine timeLineBottom">
-                    {data.map((item) => (
-                        <div className={`data ${item.id}`}>
-                            <img
-                                src='/img/circle.png'
-                                className={`circleIcon ${item.id}`}
-                                onMouseEnter={iconMouseHoverEventHandler}
-                                onMouseLeave={iconMouseExitEventHandler}
-                                onClick={clickEventHandler}
-                                alt="이미지 깨짐"
-                            />
-                            <img
-                                src="/img/mouseClick.gif"
-                                className={`hideClick ${item.id} ${isIconHover === item.id ? 'removeClick' : ''}`}
-                                alt="이미지 깨짐"
-                            />
-                            <p className="year">{item.year}</p>
+                <div className={`timeLineBox ${isMoveTimeLine?"timeLineBoxTop":"timeLineBoxMid"}`} >
+                    <div className="timeLine timeLineTop"
+                         onClick={downTimeLineHandler}>
+                        <div className="titleBox">
+                            {isTitleCheck ? <ReactTyped
+                                className="title"
+                                strings={[whatISYear + "년 어쩌구 저쩌구 입니당."]}
+                                typeSpeed={150}
+                            /> : ""}
                         </div>
-                    ))}
+                    </div>
+                    <hr/>
+                    <div className="timeLine timeLineBottom">
 
+                        {data.map((item) => (
+                            <div className={`data ${item.id}`}>
+                                <img
+                                    src='/img/circle.png'
+                                    className={`circleIcon ${item.id}`}
+                                    onMouseEnter={iconMouseHoverEventHandler}
+                                    onMouseLeave={iconMouseExitEventHandler}
+                                    onClick={clickEventHandler}
+                                    alt="이미지 깨짐"
+                                />
+                                <img
+                                    src="/img/mouseClick.gif"
+                                    className={`hideClick ${item.id} ${isIconHover === item.id ? 'removeClick' : ''}`}
+                                    alt="이미지 깨짐"
+                                />
+                                <p className="year">{item.year}</p>
+
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
-            {isTitleCheck?            <ReactTyped
-                className="title"
-                strings={[whatISYear+"년 어쩌구 저쩌구 입니당."]}
-                typeSpeed={150}
-            />:""}
+
+            <VideoPlatform/>
         </>
     );
 };

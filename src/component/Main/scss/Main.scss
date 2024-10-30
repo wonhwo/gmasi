@@ -4,55 +4,97 @@ hr {
 
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.titleBox{
+  width: 100%;
+  position: absolute;
+  background-color: yellow;
+  top: 0;
+  left: 0;
 }
 
 .title {
-  position: fixed;
-  top: 0;
+  position: absolute;
   left: 0;
-  margin-top: 75px;
-  margin-left: 25px;
-  font-size: 40px;
+  top: 0;
+  font-size: 30px;
   color: white;
+  z-index: 9;
+  margin-top: 20px;
 }
 
 
 .backDrop {
   position: absolute;
   background-color: transparent;
-  width: 5400px;
+  width: 6400px;
   height: 201px;
   z-index: 1;
 }
 
 #timeLineContainer {
+  position: relative;
   background: rgba(0, 0, 0, 0.5);
   transition: all 1s ease;
-  position: relative;
-  width: 5400px;
+  width: 6400px;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-flow: column;
+  .timeLineBoxTop{
+    animation: moveToTop 1s ease forwards;
+  }
+  .timeLineBoxMid{
+    animation: moveToMid 1s ease forwards;
 
-  .timeLine {
-    height: 100px;
-    width: 100%;
-    background-color: #282c34;
+  }
+  @keyframes moveToTop {
+    from {
+      top: 50%;
+    }
+    to {
+      top: 0;
+      margin-top: 125px;
+    }
+  }
+  @keyframes moveToMid {
+    from {
+      top: 0;
+      margin-top: 170px;
+    }
+    to {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 0;
+    }
+  }
+
+  .timeLineBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  .timeLine {
+    height: 75px;
+    width: 6400px;
+    background-color: #282c34;
+    display: flex;
   }
 
 
   .timeLineTop {
-    transition: margin-top 1s ease;
   }
 
   .timeLineBottomAnimate {
-    margin-top: -335px; /* 애니메이션이 적용될 때의 margin-bottom 값 */
 
   }
 
@@ -64,11 +106,18 @@ body {
       position: relative;
       color: white;
       margin-top: -18px;
-      margin-left: 300px;
-
+      margin-left: 200px;
+    }
+    .data:first-child{
+      margin-left: 1000px;
+    }
+    .data:last-child{
+      margin-right: 1000px;
     }
 
+
   }
+
 
 }
 
