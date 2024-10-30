@@ -1,7 +1,19 @@
 #videoPlatForm{
-  background-color: red;
-  height: 100vh;
-  padding-top: 200px;
+  background-color: wheat;
+  width: 1280px;
+  margin-top: 124px;
   position: absolute;
-  z-index: 9;
+  height: 5400px;
+  z-index: -1;
+  //display: none;
+  .monthInfo{
+    height: 300px;
+    background-color: blue;
+    .month{
+
+    }
+    .videoBox{
+
+    }
+  }
 }

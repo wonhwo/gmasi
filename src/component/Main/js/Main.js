@@ -1,5 +1,5 @@
 import '../scss/Main.scss'
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {ReactTyped} from 'react-typed';
 import VideoPlatform from "../../VideoPlatform/js/VideoPlatform";
 
@@ -18,6 +18,7 @@ const Main = () => {
         {id: 'data10', year: 2025},
         {id: 'data11', year: 2026},
     ];
+    const childRef = useRef(null);
 
     const [whatISYear, setWhatISYear] = useState("");
     const [isTitleCheck, setIsTitleCheck] = useState(false);
@@ -31,13 +32,15 @@ const Main = () => {
     const iconMouseExitEventHandler = () => {
         seIsIconHover("")
     }
+
     const getPositonHandler = (e) => {
-
         const clickedElement = e.currentTarget;
-
         // 클릭한 요소의 위치 계산
         const elementRect = clickedElement.getBoundingClientRect();
         const $titleBox = document.querySelector(".titleBox");
+        const centerX = (window.innerWidth - elementRect.width) / 2;
+        childRef.current.style.left= `${centerX}px`;
+
         $titleBox.style.left = `${elementRect.left + window.scrollX}px`;
         const elementCenterY = elementRect.top + window.scrollY + (elementRect.height / 2);
         const elementCenterX = elementRect.left + window.scrollX + (elementRect.width / 2);
@@ -83,9 +86,6 @@ const Main = () => {
 
         }
         iconMouseHoverEventHandler(e);
-
-
-
     }
 
     const timeLineHandler = (e) => {
@@ -149,9 +149,12 @@ const Main = () => {
                         ))}
                     </div>
                 </div>
+                <div className="platFormBox">
+                    <VideoPlatform ref={childRef}/>
+                </div>
+
             </section>
 
-            <VideoPlatform/>
         </>
     );
 };
