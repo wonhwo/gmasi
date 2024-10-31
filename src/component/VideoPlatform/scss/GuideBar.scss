@@ -1,0 +1,61 @@
+.guideBar{
+  padding-left: 5px;
+  .GuidBarContainer{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+    padding-left: 5px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .ContainerContent{
+    height: 25px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0;
+  }
+  .ContainerContent:hover{
+    //border: 1px solid #ccc;
+    //box-shadow: inset 0 1px 2px #ccc;
+    caret-color: #0f0f0f;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+  }
+  .homeContainer{
+    caret-color: #0f0f0f;
+    
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    .home{
+      .homeIcon{
+        width: 16px;
+        height: 16px;
+        margin: auto 15px;
+      }
+      .homeText{
+        width: 75%;
+        text-align: start;
+        font-size: 10px;
+        font-weight: 500;
+      }
+    }
+
+  }
+  .yearContainer{
+
+  }
+  .monthContainer{
+
+  }
+  .settingContainer{
+
+  }
+}

@@ -18,7 +18,6 @@ const Main = () => {
         {id: 'data10', year: 2025},
         {id: 'data11', year: 2026},
     ];
-    const childRef = useRef(null);
 
     const [whatISYear, setWhatISYear] = useState("");
     const [isTitleCheck, setIsTitleCheck] = useState(false);
@@ -28,20 +27,16 @@ const Main = () => {
     const iconMouseHoverEventHandler = (e) => {
         let temp = e.target.classList[1];
         seIsIconHover(temp);
-    }
+    };
     const iconMouseExitEventHandler = () => {
         seIsIconHover("")
-    }
-
+    };
+const [savePosition,setSavePostion]=useState({x:0,y:0});
     const getPositonHandler = (e) => {
         const clickedElement = e.currentTarget;
         // 클릭한 요소의 위치 계산
         const elementRect = clickedElement.getBoundingClientRect();
-        const $titleBox = document.querySelector(".titleBox");
-        const centerX = (window.innerWidth - elementRect.width) / 2;
-        childRef.current.style.left= `${centerX}px`;
 
-        $titleBox.style.left = `${elementRect.left + window.scrollX}px`;
         const elementCenterY = elementRect.top + window.scrollY + (elementRect.height / 2);
         const elementCenterX = elementRect.left + window.scrollX + (elementRect.width / 2);
 
@@ -51,7 +46,7 @@ const Main = () => {
         // 스크롤할 위치 계산 (현재 스크롤 위치와 요소 중앙 위치의 차이)
         const scrollToY = elementCenterY - windowCenterY;
         const scrollToX = elementCenterX - windowCenterX;
-        $titleBox.style.transform = "translate(-9%, -9%)"; // 왼쪽 위로 이동
+        setSavePostion({x:scrollToX,y:scrollToY});
 
         // 스크롤 이동
         window.scrollTo({
@@ -60,27 +55,34 @@ const Main = () => {
             behavior: 'smooth' // 부드러운 스크롤 효과
         });
     }
+    const moveLeftHandler=()=>{
+        window.scrollTo({
+            left:0,
+            behavior:'smooth'
+        })
+    }
 
     const clickEventHandler = (e) => {
         e.stopPropagation();
-        if(isOneClickKnow===0){
-                setIsOneClickKnow(1);
-                console.log("1클릭");
+        if (isOneClickKnow === 0) {
+            setIsOneClickKnow(1);
+            console.log("1클릭");
             getPositonHandler(e);
-
         }
-        if(isOneClickKnow===1){
-            if(isIconHover===e.target.classList[1]){
+        if (isOneClickKnow === 1) {
+            if (isIconHover === e.target.classList[1]) {
                 setIsOneClickKnow(2);
                 console.log("2클릭");
                 timeLineHandler(e);
+                moveLeftHandler();
 
-            }else{
+
+            } else {
                 getPositonHandler(e);
                 setIsOneClickKnow(0);
             }
         }
-        if(isOneClickKnow===2){
+        if (isOneClickKnow === 2) {
             setIsOneClickKnow(0);
             console.log("초기화")
 
@@ -89,32 +91,37 @@ const Main = () => {
     }
 
     const timeLineHandler = (e) => {
-            const findByYear = Array.from(e.target.parentNode.children).find(child => child.classList.contains('year'));
-            setWhatISYear(findByYear.textContent);
-            const dataElements = document.querySelectorAll('.timeLineBottom');
-            setIsMoveTimeLine(false);
-            dataElements.forEach((element) => {
-                element.classList.add('removeCircle');
-            });
-            setIsMoveTimeLine(true);
-
-            const titleHandler = () => {
-                setIsTitleCheck(true);
-            }
-            setTimeout(titleHandler, 1000);
-    }
-    const downTimeLineHandler = () => {
-        if(isTitleCheck){
-        iconMouseExitEventHandler();
-        setIsOneClickKnow(0);
-
+        const findByYear = Array.from(e.target.parentNode.children).find(child => child.classList.contains('year'));
+        setWhatISYear(findByYear.textContent);
         const dataElements = document.querySelectorAll('.timeLineBottom');
-        setIsTitleCheck(false);
-
         setIsMoveTimeLine(false);
         dataElements.forEach((element) => {
-            element.classList.remove('removeCircle');
+            element.classList.add('removeCircle');
         });
+        setIsMoveTimeLine(true);
+
+        const titleHandler = () => {
+            setIsTitleCheck(true);
+        }
+        setTimeout(titleHandler, 1000);
+    }
+    const downTimeLineHandler = () => {
+        if (isTitleCheck) {
+            window.scrollTo({
+                top: savePosition.y,
+                left: savePosition.x,
+                behavior: 'smooth' // 부드러운 스크롤 효과
+            });
+            iconMouseExitEventHandler();
+            setIsOneClickKnow(0);
+
+            const dataElements = document.querySelectorAll('.timeLineBottom');
+            setIsTitleCheck(false);
+
+            setIsMoveTimeLine(false);
+            dataElements.forEach((element) => {
+                element.classList.remove('removeCircle');
+            });
         }
     }
 
@@ -149,9 +156,7 @@ const Main = () => {
                         ))}
                     </div>
                 </div>
-                <div className="platFormBox">
-                    <VideoPlatform ref={childRef}/>
-                </div>
+                    <VideoPlatform isOneClickKnow={isOneClickKnow}/>
 
             </section>
 

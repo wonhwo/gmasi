@@ -6,24 +6,24 @@ hr {
 body {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 5400px;
-}
-.titleBox{
-  width: 100%;
-  position: absolute;
-  background-color: yellow;
-  top: 0;
-  left: 0;
 }
 
-.title {
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 30px;
-  color: white;
-  z-index: 9;
-  margin-top: 20px;
+.titleBox {
+  width: 100%;
+  height: 100%;
+  //background-color: yellow;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .title {
+    position: relative;
+    font-size: 30px;
+    color: white;
+    z-index: 9;
+    margin-top: 21px;
+    padding-left: 20px;
+  }
 }
 
 
@@ -37,17 +37,20 @@ body {
 
 #timeLineContainer {
   position: relative;
-  background: rgba(0, 0, 0, 0.5);
+  //background: rgba(0, 0, 0, 0.5);
   transition: all 1s ease;
   width: 6400px;
   height: 100vh;
-  .timeLineBoxTop{
+
+  .timeLineBoxTop {
     animation: moveToTop 1s ease forwards;
   }
-  .timeLineBoxMid{
+
+  .timeLineBoxMid {
     animation: moveToMid 1s ease forwards;
 
   }
+
   @keyframes moveToTop {
     from {
       top: 50%;
@@ -70,7 +73,7 @@ body {
     }
   }
 
-  .timeLineBox{
+  .timeLineBox {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -93,6 +96,7 @@ body {
 
 
   .timeLineTop {
+    position: relative;
   }
 
   .timeLineBottomAnimate {
@@ -119,6 +123,7 @@ body {
     }
   }
 }
+
 .circleIcon {
   position: relative;
   z-index: 5;
@@ -126,11 +131,13 @@ body {
   width: 35px;
   height: 35px;
 }
+
 .circleIconSizeUp {
   width: 50px;
   height: 50px;
   margin-top: -10px;
 }
+
 .removeCircle {
   opacity: 0;
 }

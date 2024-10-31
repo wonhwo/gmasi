@@ -209,17 +209,19 @@
     }
 
     .ProfileBox {
+      margin-left: 20px;
       cursor: pointer;
+      border-radius: 50%;
+      border: solid black 1px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .profileImg {
-        width: 32px;
-        height: 32px;
-        margin-left: 20px;
+        width: 24px;
+        height: 24px;
       }
-
-      .profileIcon {
-        padding: 10px;
-      }
-
     }
   }
 }

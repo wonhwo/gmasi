@@ -1,19 +1,104 @@
-#videoPlatForm{
-  background-color: wheat;
+#videoPlatForm {
+  //background-color: wheat;
   width: 1280px;
   margin-top: 124px;
   position: absolute;
-  height: 5400px;
-  z-index: -1;
-  //display: none;
-  .monthInfo{
-    height: 300px;
-    background-color: blue;
-    .month{
+  z-index: 5;
+  .monthInfo {
+    //background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column;
 
+    .month {
+      font-size: 1.1rem;
+      margin: 15px 0 15px 24px;
+      font-weight: 700;
     }
-    .videoBox{
 
+    .videoBox {
+      width: 100%;
+      //background-color: yellowgreen;
+      .card {
+        display: flex;
+
+
+        .videoCard {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 210px;
+          margin: 0 8px 40px 24px;
+          //background-color: skyblue;
+
+          .video {
+            overflow: hidden;
+            border-radius: 4%;
+          }
+
+          .infoCard {
+            width: 100%;
+            display: flex;
+
+            .videoProfile {
+              margin-top: 10px;
+              width: 40%;
+              display: flex;
+              justify-content: center;
+              align-items: start;
+
+              .videoProfileBox {
+                width: 28px;
+                height: 28px;
+                overflow: hidden;
+                //border: solid black 1px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .miniProfile {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+
+            .videoText {
+              line-height: 1.1rem;
+              margin: 5px 0;
+
+              .videoTitle {
+                font-size: 14px;
+                text-align: start;
+                line-height: 1.1rem;
+              }
+
+              .riterName {
+                font-size: 10px;
+                text-align: start;
+              }
+
+              .detailInfo {
+                display: flex;
+                text-align: start;
+
+                .viewCount {
+                  font-size: 10px;
+                }
+
+                .time {
+                  font-size: 10px;
+                }
+              }
+
+            }
+          }
+
+        }
+      }
     }
   }
 }
