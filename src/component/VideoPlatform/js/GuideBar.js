@@ -13,48 +13,67 @@ const GuideBar = () => {
             <div className="yearContainer GuidBarContainer">
                 <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
-                </div>                <div className="year ContainerContent">
+                </div>
+                <div className="year ContainerContent">
                     <p>2016년</p>
                 </div>
             </div>
             <div className="monthContainer GuidBarContainer">
                 <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
-                </div>                <div className="monthBar ContainerContent">
+                </div>
+                <div className="monthBar ContainerContent">
                     <p>8월</p>
                 </div>
             </div>
