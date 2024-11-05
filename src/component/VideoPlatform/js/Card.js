@@ -22,7 +22,7 @@ const Card = () => {
                     </div>
                 </div>
                 <div className="videoText">
-                    <h2 className="videoTitle">제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목</h2>
+                    <h2 className="videoTitle">제목제목제목제목제목제목제목제목제목제목제목</h2>
                     <h3 className="riterName">작성자 이름</h3>
                     <div className="detailInfo">
                         <h4 className="viewCount">조회수 0 ●</h4>

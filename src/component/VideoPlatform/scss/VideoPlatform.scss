@@ -4,101 +4,104 @@
   margin-top: 124px;
   position: absolute;
   z-index: 5;
-  .monthInfo {
-    //background-color: blue;
+  overflow: auto;
+  height: 520px;
+  .box{
+    background-color: white;
     display: flex;
-    justify-content: start;
-    align-items: flex-start;
-    flex-flow: column;
-
+    flex-direction: column;
     .month {
       font-size: 1.1rem;
       margin: 15px 0 15px 24px;
       font-weight: 700;
+      text-align: start;
     }
+    .monthInfo {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      margin-left: 155px;
+      .videoBox {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4열로 설정 */
+        gap: 10px; /* 각 아이템 간의 간격 */
+        .card {
+          height: 100%;
 
-    .videoBox {
-      width: 100%;
-      //background-color: yellowgreen;
-      .card {
-        display: flex;
-
-
-        .videoCard {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          width: 210px;
-          margin: 0 8px 40px 24px;
-          //background-color: skyblue;
-
-          .video {
-            overflow: hidden;
-            border-radius: 4%;
-          }
-
-          .infoCard {
-            width: 100%;
+          .videoCard {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 0 8px 40px 24px;
 
-            .videoProfile {
-              margin-top: 10px;
-              width: 40%;
+            .video {
+              overflow: hidden;
+              border-radius: 4%;
+            }
+
+            .infoCard {
+              width: 100%;
               display: flex;
-              justify-content: center;
-              align-items: start;
 
-              .videoProfileBox {
-                width: 28px;
-                height: 28px;
-                overflow: hidden;
-                //border: solid black 1px;
-                border-radius: 50%;
+              .videoProfile {
+                margin-top: 10px;
+                width: 40%;
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: start;
 
-                .miniProfile {
-                  width: 20px;
-                  height: 20px;
+                .videoProfileBox {
+                  width: 28px;
+                  height: 28px;
+                  //border: solid black 1px;
+                  border-radius: 50%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+
+                  .miniProfile {
+                    width: 20px;
+                    height: 20px;
+                  }
                 }
               }
-            }
 
-            .videoText {
-              line-height: 1.1rem;
-              margin: 5px 0;
-
-              .videoTitle {
-                font-size: 14px;
-                text-align: start;
+              .videoText {
                 line-height: 1.1rem;
-              }
+                margin: 5px 0;
 
-              .riterName {
-                font-size: 10px;
-                text-align: start;
-              }
-
-              .detailInfo {
-                display: flex;
-                text-align: start;
-
-                .viewCount {
-                  font-size: 10px;
+                .videoTitle {
+                  font-size: 14px;
+                  text-align: start;
+                  line-height: 1.1rem;
                 }
 
-                .time {
+                .riterName {
                   font-size: 10px;
+                  text-align: start;
                 }
-              }
 
+                .detailInfo {
+                  display: flex;
+                  text-align: start;
+
+                  .viewCount {
+                    font-size: 10px;
+                  }
+
+                  .time {
+                    font-size: 10px;
+                  }
+                }
+
+              }
             }
-          }
 
+          }
         }
       }
     }
   }
+
 }

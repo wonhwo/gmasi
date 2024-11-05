@@ -31,6 +31,23 @@ const Main = () => {
     const iconMouseExitEventHandler = () => {
         seIsIconHover("")
     };
+    const imgMoveHandler=()=>{
+        const $backgroundImg = document.querySelector(".backgroundImg");
+        // 현재 뷰포트의 크기 구하기
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        // 중앙 위치 계산
+        const top = viewportHeight / 3;
+        const left = viewportWidth / 2;
+
+        // 위치 설정
+        $backgroundImg.style.top = `${top}px`;
+        $backgroundImg.style.left = `${left}px`;
+    }
+    useEffect(() => {
+        imgMoveHandler();
+    }, []);
 const [savePosition,setSavePostion]=useState({x:0,y:0});
     const getPositonHandler = (e) => {
         const clickedElement = e.currentTarget;
@@ -127,7 +144,8 @@ const [savePosition,setSavePostion]=useState({x:0,y:0});
 
     return (
         <>
-            <section id="timeLineContainer">
+            <section id="timeLineContainer" >
+                <img className={`backgroundImg ${isOneClickKnow === 0||1?"offBackground":""}`} src="/img/kiki.png" alt=""/>
                 <div className={`timeLineBox ${isMoveTimeLine ? "timeLineBoxTop" : "timeLineBoxMid"}`}>
                     <div className="timeLine timeLineTop"
                          onClick={downTimeLineHandler}>

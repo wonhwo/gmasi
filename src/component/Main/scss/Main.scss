@@ -3,10 +3,11 @@ hr {
 }
 
 
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
+body{
+  overflow: hidden;
 }
+
+
 
 .titleBox {
   width: 100%;
@@ -36,11 +37,36 @@ body {
 }
 
 #timeLineContainer {
+  background: url('http://unsplash.it/1200x800') center center no-repeat;
+  background-size: cover;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135deg, #fddb92, #d1fdff, #fcb69f, #fdc79d, #ff9a9e); /* 썬셋 그라데이션 */
+    opacity: .6;
+  }
+  //background: url("../js/background.jfif") repeat-x;
+  //background-size: auto;
   position: relative;
-  //background: rgba(0, 0, 0, 0.5);
   transition: all 1s ease;
   width: 6400px;
   height: 100vh;
+  .backgroundImg{
+    width: 450px;
+    height: 350px;
+    position: fixed;
+    border-radius: 5px; /* 모서리 둥글게 */
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+    left: 50%; /* 화면 가로의 중앙 */
+    top: 50%; /* 화면 세로의 중앙 */
+  }
+  .offBackground{
+    display: none;
+  }
 
   .timeLineBoxTop {
     animation: moveToTop 1s ease forwards;
@@ -66,7 +92,7 @@ body {
       margin-top: 170px;
     }
     to {
-      top: 50%;
+      top: 80%;
       left: 50%;
       transform: translate(-50%, -50%);
       margin-top: 0;
@@ -75,7 +101,7 @@ body {
 
   .timeLineBox {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -88,9 +114,17 @@ body {
   }
 
   .timeLine {
+    //background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #fcb69f); /* 두꺼운 띠 느낌의 그라데이션 배경 */
+    //border-radius: 12px; /* 둥근 모서리 */
+    //box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+
+    background: linear-gradient(135deg, #fddb92, #d1fdff, #fcb69f, #fdc79d, #ff9a9e); /* 썬셋 그라데이션 */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
     height: 75px;
     width: 6400px;
-    background-color: #282c34;
+    //background-color: #282c34;
     display: flex;
   }
 

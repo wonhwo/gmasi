@@ -1,30 +1,21 @@
 .guideBar{
   padding-left: 5px;
+  overflow: auto;
+  scrollbar-width: thin;
+  position: fixed;
+  height: 100vh;
+  margin-top: 5px ;
   .GuidBarContainer{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    //padding-left: 5px;
     width: 150px;
-    //display: flex;
-    //justify-content: center;
-    //align-items: center;
-    //flex-direction: column;
-    padding: 10px 0;
-    height: 100px;
-    overflow: hidden;
-  }
-  .GuidBarContainer:hover{
-    overflow: inherit;
+    margin: auto 0;
     height: auto;
   }
   .ContainerContent{
-    flex-direction: column;
     cursor: pointer;
-    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 5px 0;
-    margin: 2px 0;
   }
   .ContainerContent:hover{
     //border: 1px solid #ccc;
@@ -34,35 +25,100 @@
     background-color: #f0f0f0;
   }
   .homeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    padding: 10px 0;
+      .home{
+        background-color: #f0f0f0;
+        width: 90%;
+        border-radius: 8px;
 
-    .home{
-      caret-color: #0f0f0f;
-      background-color: #f0f0f0;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
+        height: 26px;
+
+        .homeIcon{
+          margin-right: 10px;
+          margin-left: 5px;
+          width: 16px;
+          height: 16px;
+        }
+        .homeText{
+          font-size: 10px;
+        }
+
+    }
+  }  .monthContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    padding: 10px 0;
+      .monthContent{
+        width: 90%;
+        height: 26px;
+
+        .monthIcon{
+          margin-right: 10px;
+          margin-left: 5px;
+          width: 16px;
+          height: 16px;
+        }
+        .monthText{
+          font-size: 10px;
+        }
+
+    }
+  }
+
+  .yearContainer{
+    .yearTitle{
       margin-top: 20px;
-      .homeIcon{
-        width: 16px;
-        height: 16px;
-        margin: auto 15px;
+    }
+    .monthTable{
+      width: 100%;
+      border-collapse: separate; /* 셀 간격을 주기 위해 separate 사용 */
+      border-spacing: 10px; /* 셀 간격 */
+      td{
+        border-radius: 8px;
+        width: auto;
+        height: 5px; /* 셀의 높이 */
+        text-align: center; /* 텍스트 가운데 정렬 */
+        font-size: 12px;
+        padding: 5px;
       }
-      .homeText{
-        width: 75%;
-        text-align: start;
-        font-size: 10px;
-        font-weight: 500;
+      td:hover{
+        caret-color: #0f0f0f;
+        background-color: #f0f0f0;
+        cursor: pointer;
       }
     }
-
   }
-  .yearContainer{
 
-  }
-  .monthContainer{
-
-  }
   .settingContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    flex-direction: column;
+    .setting{
+      width: 90%;
+      padding: 5px 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .settingImg{
+        margin-right: 10px;
+        margin-left: 5px;
+        width: 16px;
+        height: 16px;
+      }
+      .settingText{
+        font-size: 12px;
+      }
 
+    }
   }
 }
