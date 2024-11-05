@@ -40,7 +40,7 @@ const Header = () => {
             </div>
             <div id="end">
                 <div className="writeBox">
-                    <img className="writeIcon profileIcon" src="/img/write.png" alt="이미지 깨짐"/>
+                    <img className="writeIcon profileIcon" src="/img/make.png" alt="이미지 깨짐"/>
 
                 </div>
                 <div className="ProfileBox">
