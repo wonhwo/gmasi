@@ -1,175 +1,256 @@
-:root{
-  --vw: 19.2px;
-  --vh: 9.53px;
+:root {
+  --vw: 1vw; /* 1% of the viewport width */
+  --vh: 1vh; /* 1% of the viewport height */
 }
-img{
+
+
+img {
   width: 100%;
   height: auto;
   max-width: 100%;
   vertical-align: middle;
 }
-.wrapper{  scroll-behavior: smooth; /* 특정 요소에만 부드러운 스크롤 적용 */
+
+.wrapper {
+  background-color: #f1c9b0;
   overflow: auto;
-
   height: 500vh;
-.introContent {
 
-  .introHead {
-  }
+  .introContent {
+    height: 100vh;
+    .introMain {
+      gap: min(var(--vh) * 2.0987654321, 1.0625rem);
+      margin-top: min(var(--vh) * 4.9382716049, 2.5rem);
+      grid-area: 1 / 1;
+      display: grid;
+      place-items: center;
 
-  .introMain {
-    gap: min(var(--vh)* 2.0987654321, 1.0625rem);
-    margin-top: min(var(--vh)* 4.9382716049, 2.5rem);
-    grid-area: 1 / 1;
-    display: grid;
-    place-items: center;
-    .mask {
-      //width: min(var(--vh)* 79.6185185185, 40.306875rem);
-      //height: min(var(--vh)* 49.1358024691, 24.875rem);
-      .imgHead {
-
-      }
-
-      .imgBody {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        .loader_illust {
-          width: 100%;
-          height: 100%;
-          background-color: #3498db; /* 배경색을 지정 (마스크 이미지가 없을 때 보여지는 색) */
-          mask-image: url('./mask.svg'); /* 마스크 이미지 경로 */
-          -webkit-mask-image: url('./mask.svg'); /* Safari와 같은 Webkit 기반 브라우저에 적용 */
-          mask-size: cover; /* 마스크 이미지를 요소 크기에 맞게 조정 */
-          .loader_sky {
-          }
-
-          .loader_horizon {
-
-          }
-
-          .loader_building {
-
-          }
-
-          .loader_mountainLeft {
-
-          }
-
-          .loader_mountainRight {
-
-          }
-
-          .loader_shadow {
-          }
-
-          .loader_child {
-          }
-
-          .loader_woman {
-          }
-
-          .loader_man {
-
-          }
-
-          .loader_wood {
-          }
-
-          .loader_woodLeft {
-          }
-
-          .loader_woodRight {
-            top: 0;
-            right: 0;
-          }
-
-          .loader_bird {
-          }
-
-          div{
-            position: absolute;
-          }
+      .mask {
+        .introHead {
 
         }
-      }
 
-      @media screen and (min-width: 48em) {
+        //width: min(var(--vh)* 79.6185185185, 40.306875rem);
+        //height: min(var(--vh)* 49.1358024691, 24.875rem);
+        .imgHead {
+          position: fixed;
+          left: 50%;
+          top: 20%;
+          transform: translate(-50%, -50%);
+        }
+
         .imgBody {
-          width: min(var(--vh) * 79.6185185185, 40.306875rem);
-          height: min(var(--vh) * 49.1358024691, 24.875rem);
+          z-index: 2;
+          position: fixed;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+
+          .loader_illust {
+            width: 100%;
+            height: 100%;
+            background-color: #3498db; /* 배경색을 지정 (마스크 이미지가 없을 때 보여지는 색) */
+            mask-image: url('./mask.svg'); /* 마스크 이미지 경로 */
+            -webkit-mask-image: url('./mask.svg'); /* Safari와 같은 Webkit 기반 브라우저에 적용 */
+            mask-size: cover; /* 마스크 이미지를 요소 크기에 맞게 조정 */
+            .loader_sky {
+            }
+
+            .loader_horizon {
+
+            }
+
+            .loader_building {
+
+            }
+
+            .loader_mountainLeft {
+
+            }
+
+            .loader_mountainRight {
+
+            }
+
+            .loader_shadow {
+            }
+
+            .loader_child {
+            }
+
+            .loader_woman {
+            }
+
+            .loader_man {
+
+            }
+
+            .loader_wood {
+            }
+
+            .loader_woodLeft {
+            }
+
+            .loader_woodRight {
+              top: 0;
+              right: 0;
+            }
+
+            .loader_bird {
+            }
+
+            div {
+              position: absolute;
+            }
+
+          }
+        }
+
+        @media screen and (min-width: 48em) {
+          .imgBody {
+            width: min(var(--vh) * 79.6185185185, 40.306875rem);
+            height: min(var(--vh) * 49.1358024691, 24.875rem);
+          }
         }
       }
     }
+    .introFooter {
+      z-index: 0;
+      background-color: #3e3a2a;
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.5s ease; /* 부모 요소는 기존처럼 빠르게 적용 */
+      transform-origin: center center; /* 크기 조정의 기준점 */
+    }
+
+    .SMN_effect-31 .textt {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      text-align: center;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      padding: 0;
+    }
+
+    .SMN_effect-31 .textt span {
+      display: block;
+      -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 0.7초로 텍스트 애니메이션 속도 설정 */
+      transition: -webkit-transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 0.7초로 텍스트 애니메이션 속도 설정 */
+      transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      font-size: 9px;
+      color: white;
+    }
+
+    .SMN_effect-31 .textt:after {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      content: attr(data-hover);
+      display: inline;
+      text-align: center;
+      -webkit-transition: top 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 텍스트가 내려오는 애니메이션도 0.7초 */
+      transition: top 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 텍스트가 내려오는 애니메이션도 0.7초 */
+      font-size: 9px;
+      color: white;
+    }
+
+    /* 부모 요소에 hover가 발생하면 자식 텍스트 애니메이션만 0.7초로 적용 */
+    .introFooter:hover .SMN_effect-31 .textt span {
+      transform: translateY(-100%); /* 텍스트가 위로 올라가면서 사라짐 */
+    }
+
+    .introFooter:hover .SMN_effect-31 .textt:after {
+      top: 0; /* 새로운 텍스트가 아래에서 올라옴 */
+    }
+
+    .SMN_effect-31 .textt:active {
+      -webkit-animation-name: rubberBand;
+      animation-name: rubberBand;
+    }
+
+
   }
 
-  .introFooter {
-  }
+  @media screen and (min-width: 48em) {
+    .loader_sky {
+      top: max(var(--vh) * -22.4691358025, -11.375rem);
+      left: max(var(--vh) * -4.6913580247, -2.375rem);
+      width: min(var(--vh) * 88.8888888889, 45rem);
+    }
+    .loader_horizon {
+      bottom: max(var(--vh) * -16.7901234568, -8.5rem);
+      width: min(var(--vh) * 79.6913580247, 40.34375rem);
+    }
+    .loader_building {
+      top: min(var(--vh) * 15.3086419753, 7.75rem);
+      left: min(var(--vh) * 34.3209876543, 17.375rem);
+      width: min(var(--vh) * 27.0987654321, 13.71875rem);
+    }
+    .loader_mountainLeft {
+      top: min(var(--vh) * .2469135802, .125rem);
+      left: 0;
+      width: min(var(--vh) * 34.2592592593, 17.34375rem);
+    }
+    .loader_mountainRight {
 
+      top: min(var(--vh) * 6.5432098765, 3.3125rem);
+      right: min(var(--vh) * .6172839506, .3125rem);
+      width: min(var(--vh) * 40.8024691358, 20.65625rem);
+    }
+    .loader_shadow {
+      top: min(var(--vh) * 21.049382716, 10.65625rem);
+      right: min(var(--vh) * 12.962962963, 6.5625rem);
+      width: min(var(--vh) * 36.1111111111, 18.28125rem);
+    }
+    .loader_child {
+      width: min(var(--vh) * 33.2716049383, 17.84375rem);
+      right: 0;
+      bottom: 0;
+    }
+
+    .loader_woman {
+      bottom: 0;
+      left: 0;
+      width: min(var(--vh) * 57.3456790123, 29.03125rem);
+    }
+    .loader_man {
+      bottom: 0;
+      left: min(var(--vh) * 20.3703703704, 10.3125rem);
+      width: min(var(--vh) * 13.6419753086, 6.90625rem);
+    }
+    .loader_wood {
+      top: max(var(--vh) * -.7407407407, -.375rem);
+      left: min(var(--vh) * .2469135802, .125rem);
+      width: min(var(--vh) * 79.6913580247, 40.34375rem);
+    }
+    .loader_woodLeft {
+      width: min(var(--vh) * 26.4814814815, 13.40625rem);
+    }
+    .loader_woodRight {
+      width: min(var(--vh) * 28.7345679012, 14.546875rem);
+    }
+    .loader_bird {
+      right: min(var(--vh) * 2.5925925926, 1.3125rem);
+      bottom: min(var(--vh) * 3.0864197531, 1.5625rem);
+      width: min(var(--vh) * 11.9135802469, 6.03125rem);
+    }
+    .introFooter {
+      width: min(var(--vh)* 14.8148148148, 7.5rem);
+      height: min(var(--vh)* 14.8148148148, 7.5rem);
+      border-radius: 50%;
+      background-color: red;
+    }
+
+
+  }
 }
-@media screen and (min-width: 48em) {
-  .loader_sky {
-    top: max(var(--vh)* -22.4691358025, -11.375rem);
-    left: max(var(--vh)* -4.6913580247, -2.375rem);
-    width: min(var(--vh)* 88.8888888889, 45rem);
-  }
-  .loader_horizon {
-    bottom: max(var(--vh)* -16.7901234568, -8.5rem);
-    width: min(var(--vh)* 79.6913580247, 40.34375rem);
-  }
-  .loader_building {
-    top: min(var(--vh)* 15.3086419753, 7.75rem);
-    left: min(var(--vh)* 34.3209876543, 17.375rem);
-    width: min(var(--vh)* 27.0987654321, 13.71875rem);
-  }
-  .loader_mountainLeft {
-    top: min(var(--vh)* .2469135802, .125rem);
-    left: 0;
-    width: min(var(--vh)* 34.2592592593, 17.34375rem);
-  }
-  .loader_mountainRight {
-
-    top: min(var(--vh)* 6.5432098765, 3.3125rem);
-    right: min(var(--vh)* .6172839506, .3125rem);
-    width: min(var(--vh)* 40.8024691358, 20.65625rem);
-  }
-  .loader_shadow {
-    top: min(var(--vh)* 21.049382716, 10.65625rem);
-    right: min(var(--vh)* 12.962962963, 6.5625rem);
-    width: min(var(--vh)* 36.1111111111, 18.28125rem);
-  }
-  .loader_child {
-    width: min(var(--vh)* 33.2716049383, 17.84375rem);
-    right: 0;
-    bottom: 0;
-  }
-
-  .loader_woman {
-    bottom: 0;
-    left: 0;
-    width: min(var(--vh)* 57.3456790123, 29.03125rem);
-  }
-  .loader_man {
-    bottom: 0;
-    left: min(var(--vh)* 20.3703703704, 10.3125rem);
-    width: min(var(--vh)* 13.6419753086, 6.90625rem);
-  }
-  .loader_wood {
-    top: max(var(--vh)* -.7407407407, -.375rem);
-    left: min(var(--vh)* .2469135802, .125rem);
-    width: min(var(--vh)* 79.6913580247, 40.34375rem);
-  }
-  .loader_woodLeft {
-    width: min(var(--vh)* 26.4814814815, 13.40625rem);
-  }
-  .loader_woodRight {
-    width: min(var(--vh)* 28.7345679012, 14.546875rem);
-  }
-  .loader_bird {
-    right: min(var(--vh)* 2.5925925926, 1.3125rem);
-    bottom: min(var(--vh)* 3.0864197531, 1.5625rem);
-    width: min(var(--vh)* 11.9135802469, 6.03125rem);
-  }
-
-}}

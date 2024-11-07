@@ -3,27 +3,36 @@ import '../scss/Intro.scss'
 
 const Intro = () => {
     const [scale, setScale] = useState(1);
-    const [scrollX, setScrollX] = useState(1);
     const [scrollY, setScrollY] = useState(1);
-
+    const [isMouseHover, setIsMouseHover] = useState(false);
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const scrollX = window.scrollX;
-            // 스크롤 위치에 따라 확대 비율 설정
-            const scaleValue = 1 + scrollY / 1500; // 1000은 비율에 따라 조정
+        let currentScrollY = 0;
+        let targetScrollY = 0;
+        let velocity = 0;
+
+        const handleSmoothScroll = () => {
+            // 목표 위치와 현재 위치의 차이를 사용해 속도를 계산
+            velocity += (targetScrollY - currentScrollY) * 0.1; // 가속 비율 조정
+            currentScrollY += velocity; // 속도를 적용해 현재 위치 업데이트
+            velocity *= 0.1; // 감속률 적용 (0.9는 감속률, 높을수록 관성이 오래 유지됨)
+
+            const scaleValue = 1 + currentScrollY / 1500;
 
             setScale(scaleValue);
-            setScrollY(scrollY / 2);
+            setScrollY(currentScrollY);
+
+            requestAnimationFrame(handleSmoothScroll);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        const onScroll = () => {
+            targetScrollY = window.scrollY; // 목표 스크롤 위치 설정
+        };
 
-        // 초기 스크롤 값 처리
-        handleScroll();
+        window.addEventListener("scroll", onScroll);
+        handleSmoothScroll();
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", onScroll);
         };
     }, []);
     return (
@@ -32,18 +41,41 @@ const Intro = () => {
                 <div className="introHead"></div>
                 <div className="introMain">
                     <div className="mask">
-                        <div className="imgHead"></div>
+                        <div className="imgHead">
+                            <svg className="svg" width="100%" height="200" viewBox="0 0 800 200">
+                                <defs>
+                                    <path
+                                        id="curved-path"
+                                        d="M 50 150 Q 400 0 750 150"
+                                        fill="none"
+                                        stroke="transparent"
+                                    />
+                                </defs>
+                                <text
+                                    fontSize={`${2.5 / scale}rem`}
+                                    fill="#2a3a4b"
+                                    fontFamily="'Kosugi Maru', sans-serif"
+                                    textAnchor="middle"
+                                    letterSpacing="0.1em"
+                                >
+                                    <textPath href="#curved-path" startOffset="50%">
+                                        한글 테스트중입니당
+                                    </textPath>
+                                </text>
+                            </svg>
+
+                        </div>
                         <div className="imgBody" style={{
                             transform: `translate(-50%, -50%) scale(${scale})`,
                         }}>
                             <div className="loader_illust -active">
 
                                 <div className="loader_sky"
-                                     style={{transform:`translate3d(0,${scrollY/80}px,0)`}}>
+                                     style={{transform: `translate3d(0,${scrollY / 80}px,0)`}}>
                                     <img src="/img/sky.png" alt=""/>
                                 </div>
                                 <div className="loader_horizon"
-                                     style={{transform:`translate3d(0,${scrollY/80}px,0)`}}>
+                                     style={{transform: `translate3d(0,${scrollY / 80}px,0)`}}>
                                     <img src="/img/horizon.jpg" alt=""/>
                                 </div>
                                 <div className="loader_building"
@@ -103,10 +135,20 @@ const Intro = () => {
                         </div>
                     </div>
                 </div>
-                <div className="introFooter"></div>
+                <div className="introFooter"  style={{
+                    transform: `translate(-50%, -50%) scale(${!isMouseHover?1/scale:0.9})`,
+                }} onMouseEnter={(e)=>{
+                    setIsMouseHover(true);
+                }}onMouseLeave={()=>{
+                    setIsMouseHover(false);
+                }}>
+                    <ul className="menu align-center expanded text-center SMN_effect-31" >
+                        <li><div className="textt"  data-hover="Scroll Down"><span>Scroll Down</span></div></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    );
+);
 };
 
 export default Intro;
