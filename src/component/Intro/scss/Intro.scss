@@ -16,6 +16,7 @@ img {
   overflow: auto;
   height: 500vh;
 
+
   .introContent {
     height: 100vh;
     .introMain {
@@ -24,14 +25,8 @@ img {
       grid-area: 1 / 1;
       display: grid;
       place-items: center;
-
       .mask {
-        .introHead {
-
-        }
-
-        //width: min(var(--vh)* 79.6185185185, 40.306875rem);
-        //height: min(var(--vh)* 49.1358024691, 24.875rem);
+        z-index: 2;
         .imgHead {
           position: fixed;
           left: 50%;
@@ -39,12 +34,15 @@ img {
           transform: translate(-50%, -50%);
         }
 
+
         .imgBody {
           z-index: 2;
           position: fixed;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
+          overflow: hidden;
+
 
           .loader_illust {
             width: 100%;
@@ -113,6 +111,7 @@ img {
           }
         }
       }
+
     }
     .introFooter {
       z-index: 0;
@@ -217,7 +216,6 @@ img {
       right: 0;
       bottom: 0;
     }
-
     .loader_woman {
       bottom: 0;
       left: 0;
